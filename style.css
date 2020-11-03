@@ -7,10 +7,14 @@ body{
     font-family: Verdana;
     font-size: 18px;
     color: #444;
+    background-image: url("bg.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 .wrapper {
     width: 800px;
     margin: 0 auto;
+    margin-top: 38px;
 }
 .clr{
     overflow: hidden;
@@ -42,6 +46,7 @@ body{
     border-bottom: 1px dashed #ddd;
     margin-bottom: 10px;
     padding-bottom: 5px;
+    color: forestgreen;
 }
 .box ul li:last-child{
     display: block;
@@ -49,8 +54,8 @@ body{
     margin-bottom: 0px;
     padding-bottom: 0px;
 }
-.box span{
-    color: #888;
+.box span {
+    color: green;
 }
 .shoutform{
     border: 5px solid #999;

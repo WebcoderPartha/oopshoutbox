@@ -1,3 +1,8 @@
+<?php
+
+    include_once "classes/Shout.php";
+    $shout = new Shout();
+?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -41,12 +46,12 @@
                 <form action="" method="POST">
                     <table>
                         <tr>
-                            <td>Name</td>
+                            <td style="color:#fff;">Name</td>
                             <td>:</td>
                             <td><input type="text" name="name" required placeholder="Please enter your name"></td>
                         </tr>
                         <tr>
-                            <td>Body</td>
+                            <td style="color:#fff;">Body</td>
                             <td>:</td>
                             <td><input type="text" name="body" required placeholder="Please enter your text"></td>
                         </tr>
