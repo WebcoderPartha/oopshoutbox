@@ -12,9 +12,9 @@ Class Database{
     public $link;
     public $error;
 
-//    public function __construct(){
-//        $this->connectDB();
-//    }
+    public function __construct(){
+        $this->connectDB();
+    }
 
     private function connectDB(){
         $this->link = new mysqli($this->host, $this->user, $this->pass,

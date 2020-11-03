@@ -3,6 +3,7 @@
     include_once "classes/Shout.php";
     $shout = new Shout();
 ?>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -21,29 +22,27 @@
         <section class="content clr">
             <div class="box">
                 <ul>
-                    <li><span>5:30 pm</span> - <b>Partha</b> Hello, How are you?</li>
-                    <li><span>5:30 pm</span> - <b>Partha</b> Hello, How are you?</li>
-                    <li><span>5:30 pm</span> - <b>Partha</b> Hello, How are you?</li>
-                    <li><span>5:30 pm</span> - <b>Partha</b> Hello, How are you?</li>
-                    <li><span>5:30 pm</span> - <b>Partha</b> Hello, How are you?</li>
-                    <li><span>5:30 pm</span> - <b>Partha</b> Hello, How are you?</li>
-                    <li><span>5:30 pm</span> - <b>Partha</b> Hello, How are you?</li>
-                    <li><span>5:30 pm</span> - <b>Partha</b> Hello, How are you?</li>
-                    <li><span>5:30 pm</span> - <b>Partha</b> Hello, How are you?</li>
-                    <li><span>5:30 pm</span> - <b>Partha</b> Hello, How are you?</li>
-                    <li><span>5:30 pm</span> - <b>Partha</b> Hello, How are you?</li>
-                    <li><span>5:30 pm</span> - <b>Partha</b> Hello, How are you?</li>
-                    <li><span>5:30 pm</span> - <b>Partha</b> Hello, How are you?</li>
-                    <li><span>5:30 pm</span> - <b>Partha</b> Hello, How are you?</li>
-                    <li><span>5:30 pm</span> - <b>Partha</b> Hello, How are you?</li>
-                    <li><span>5:30 pm</span> - <b>Partha</b> Hello, How are you?</li>
-                    <li><span>5:30 pm</span> - <b>Partha</b> Hello, How are you?</li>
-                    <li><span>5:30 pm</span> - <b>Partha</b> Hello, How are you?</li>
+                    <?php
+                        $alldata = $shout->getAllData();
+                        while ($result = $alldata->fetch_assoc()){
+                    ?>
+                    <li><span><?php echo $result['time'] ?></span> - <b><?php echo $result['name'] ?></b> <?php echo $result['body'] ?></li>
+                    <?php } ?>
                 </ul>
             </div>
 
             <div class="shoutform clr">
-                <form action="" method="POST">
+                <?php
+                if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit'])){
+                    $insertdata = $shout->insertData($_POST);
+                }
+                ?>
+                <?php
+                if (isset($insertdata)){
+                    echo $insertdata;
+                }
+                ?>
+                <form action="index.php" method="POST">
                     <table>
                         <tr>
                             <td style="color:#fff;">Name</td>
